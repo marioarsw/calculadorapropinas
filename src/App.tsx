@@ -1,10 +1,11 @@
 import MenuItem from "./components/MenuItem"
+import OrderContents from "./components/OrderContents"
 import { menuItems } from "./data/db"
 import useOrder from "./hooks/useOrder"
 
 function App() {
 
-  const { addItem } = useOrder()
+  const { order, addItem } = useOrder()
   
   return (
     <>
@@ -28,8 +29,13 @@ function App() {
           </div>
         </div>
         
-        <div>
-          <h2>Consumo</h2>
+        <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y10">
+          {/* Mostrar lo que se esta consuimendo */}
+          {/* Aquí exactamente es donde se manda llamar el código del componente*/}
+          <OrderContents
+            order={order}
+          /> 
+          
         </div>
 
       </main>
